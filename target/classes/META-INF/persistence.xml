@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.2"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+    <!-- Define persistence unit -->
+    <persistence-unit name="persistence-data">
+    	<class>com.QLDVSpringMVC.model.Loaidiem</class>
+    	<class>com.QLDVSpringMVC.model.Chidoan</class>
+    	<class>com.QLDVSpringMVC.model.CtHoatdong</class>
+    	<class>com.QLDVSpringMVC.model.CtHoatdongId</class>
+    	<class>com.QLDVSpringMVC.model.Diemdv</class>
+    	<class>com.QLDVSpringMVC.model.DiemdvId</class>
+    	<class>com.QLDVSpringMVC.model.Doanphi</class>
+    	<class>com.QLDVSpringMVC.model.Hoatdong</class>
+    	<class>com.QLDVSpringMVC.model.Hocky</class>
+    	<class>com.QLDVSpringMVC.model.Khoa</class>
+    	<class>com.QLDVSpringMVC.model.PhieuDrl</class>
+    	<class>com.QLDVSpringMVC.model.Taikhoan</class>
+    	<class>com.QLDVSpringMVC.model.TieuchiDiemrenluyen</class>
+    	<class>com.QLDVSpringMVC.model.Tintuc</class>
+    	<class>com.QLDVSpringMVC.model.Chucvu</class>
+    	<class>com.QLDVSpringMVC.model.Tieuchi</class>
+    </persistence-unit>
+</persistence>

@@ -1,0 +1,16 @@
+@charset "ISO-8859-1";
+.table-mark{
+	position: relative;
+}
+.mark-right{
+	position: absolute;
+	right:40px;
+	top: 75px;
+}
+.point{
+	display:inline-block;
+	margin-left: 70px;
+}
+.space{
+	margin-bottom: 8px;
+}

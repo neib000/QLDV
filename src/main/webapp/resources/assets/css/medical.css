@@ -1,0 +1,64 @@
+@charset "UTF-8";
+body{
+	font-family: 'Roboto', sans-serif;
+	background: #F0F1F1;
+}
+*{
+	box-sizing: border-box;
+	line-height: 1.6;
+}
+.main{
+	position:absolute;
+	left:260px;
+	top:0;
+	padding:16px 6px;
+	width:calc(100vw - 260px);
+	background-color: #EEEEEE;
+}
+.margin{
+	margin: 20px 0;
+}
+.medical{
+	background-color: #fff;
+	padding: 16px;
+	color: #333;
+	box-shadow: 0 0 2px rgba(0,0,0,.4);
+}
+.title{
+	text-align: center;
+	color: #666;
+	font-weight: 300;
+}
+.small__title{
+	font-size:20px;
+	color: #666;
+	font-weight: 400;
+	padding: 16px 0 20px 0;
+	border-bottom: 1px dashed rgba(0,0,0,.2);
+}
+.medical__top{
+	padding: 16px 0 0 0;
+}
+.medical__top ul{
+	width:80%;
+	padding: unset;
+	list-style: none;
+	display: flex;
+	justify-content: space-between;
+}
+.medical__top ul:first-child{
+		width:80%;
+	}
+.medical__top ul input{
+	display:inline-block;
+	min-width: 300px;
+	margin-left: 36px;
+	padding: 2px 8px;
+}
+.a__row{
+	transform:translateX(18px);
+	width:50%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}

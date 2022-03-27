@@ -1,0 +1,166 @@
+@charset "UTF-8";
+body{
+	font-family: 'Roboto', sans-serif;
+	background: #F0F1F1;
+}
+*{
+	box-sizing: border-box;
+	line-height: 1.6;
+}
+.main{
+	position:absolute;
+	left:260px;
+	top:0;
+	padding:16px 6px;
+	width:calc(100vw - 260px);
+}
+.account__pic{
+	border: 1px solid rgba(0,0,0,.2);
+	box-shadow: 0 0 2px rgba(0,0,0,.2);
+}
+.account__note{
+	background: #CDE0C4;
+	margin: 16px 0;
+	padding: 8px;
+	border-color: #468847;
+    color: #468847;
+    border-left: 5px solid;
+}
+.account__note.blue{
+	background: #D6DDE7;
+	border-color: #9cb4c5;
+    color: #346597;
+}
+.account__note.yellow{
+	background: #EFE1B3;
+	border-color: #dbab57;
+    color: #c09853;
+}
+.account__note ul{
+	margin: 0;
+	padding-left: 10px;
+}
+.account__info{
+	height: 100vh;
+	background: #fff;
+	box-shadow: 0 0 2px rgba(0,0,0,.2);
+}
+.red{
+	color: #dc3545;
+}
+.account__info{
+	
+	padding: 8px 16px;
+}
+.account__inro_top ul{
+	list-style: none;
+	padding-left: 0;
+	color: #333;
+}
+.account__inro_bottom{
+	margin-top: 16px;
+}
+.account__inro_bottom h3{
+	font-size: 15px;
+	color: #222;
+	border-bottom: 1px dashed rgba(0,0,0,.4);
+	padding-bottom: 16px;
+}
+.account__inro_bottom p{
+	display: inline-block;
+	color: #333;
+	font-size: 13px;
+	
+}
+.margin{
+	margin: 6px 0;
+}
+.padding{
+	padding: 6px 0;
+}
+.account__inro_bottom input{
+
+	min-width:55%;
+	float: right;
+	padding: 2px 8px;
+	color: #777;
+	border: 1px solid rgba(0,0,0,.4);
+	outline: blue;
+
+}
+
+.account__inro_bottom input[type=submit]{
+	margin-top: 80px;
+	background-color: #3276B1;
+	color: #fff;
+	padding: 8px 0;
+	transform: translateX(-45px);
+}
+.account__inro_bottom input[type=submit]:hover{
+	cursor: pointer;
+	background-color: #739ABC;
+}
+.account__inro_bottom select{
+	min-width: 55%;
+	float: right;
+	padding: 2px 8px;
+	color: #777;
+	border: 1px solid rgba(0,0,0,.4);
+	outline: blue;
+
+}
+.head__mannage{
+	background-color: #31353D;
+	color:#fff;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px 8px;
+	margin: -16px -6px 6px;
+	
+}
+.head__mannage h4{
+
+	font-size: 21px;
+	font-weight: 400;
+	
+}
+.my_edit{
+	position: relative;
+}
+.my_edit:hover::after{
+	opacity: 1;
+}
+.my_edit::after{
+	content:"sửa";
+	position: absolute;
+	left: 0;
+	bottom: 100%;
+	background:#000;
+	color: #fff;
+	font-size: 14px;
+	padding: 4px 8px;
+	border-radius: 6px;
+	opacity: 0;
+	transition:.2s;
+}
+
+.my_delete{
+	position: relative;
+}
+.my_delete:hover::after{
+	opacity: 1;
+}
+.my_delete::after{
+	content:"xóa";
+	position: absolute;
+	left: 0;
+	bottom: 100%;
+	background:#000;
+	color: #fff;
+	font-size: 14px;
+	padding: 4px 8px;
+	border-radius: 6px;
+	opacity: 0;
+	transition:.2s;
+}

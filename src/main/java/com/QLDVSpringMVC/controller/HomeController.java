@@ -10,11 +10,16 @@ import org.springframework.security.web.authentication.logout.SecurityContextLog
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.view.RedirectView;
 
 import com.QLDVSpringMVC.model.Taikhoan;
+import com.QLDVSpringMVC.security.CustomSuccessHandler;
 import com.QLDVSpringMVC.service.HoatdongService;
 import com.QLDVSpringMVC.service.TaikhoanService;
+import com.QLDVSpringMVC.util.SecurityUtils;
 
 @Controller
 public class HomeController {
@@ -23,6 +28,10 @@ public class HomeController {
 	TaikhoanService tkSer;
 	@Autowired
 	HoatdongService hdSer;
+	@Autowired
+	SecurityUtils security;
+	@Autowired
+	CustomSuccessHandler handlelogin;
 
 	@RequestMapping(value = "/Preloading", method = RequestMethod.GET)
 	public ModelAndView preloading() {
@@ -32,16 +41,19 @@ public class HomeController {
 
 	@RequestMapping(value = "/Login", method = RequestMethod.GET)
 	public ModelAndView homePage() {
+		if (security.isLogin()) {
+			String url = handlelogin.determineTargetUrl(null);
+			return new ModelAndView( "redirect:" + url);
+		}
 		ModelAndView mav = new ModelAndView("Login");
 		return mav;
 	}
-	
 	@RequestMapping(value = "/accessDenied", method = RequestMethod.GET)
 	public ModelAndView accessDenied() {
 		ModelAndView mav = new ModelAndView("redirect:/Login?accessDenied");
 		return mav;
 	}
-	
+
 	@RequestMapping(value = "/Logout", method = RequestMethod.GET)
 	public ModelAndView logout(HttpServletRequest request, HttpServletResponse response) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();

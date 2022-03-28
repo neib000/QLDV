@@ -22,6 +22,7 @@ public class Chidoan implements java.io.Serializable {
 	private int machidoan;
 	private Khoa khoa;
 	private String tenchidoan;
+	private String chidoantruong;
 	private Boolean trangthai;
 	private Set<Taikhoan> taikhoans = new HashSet<Taikhoan>(0);
 
@@ -32,11 +33,12 @@ public class Chidoan implements java.io.Serializable {
 		this.machidoan = machidoan;
 	}
 
-	public Chidoan(int machidoan, Khoa khoa, String tenchidoan, Boolean trangthai, Set<Taikhoan> taikhoans) {
+	public Chidoan(int machidoan, Khoa khoa, String tenchidoan, Boolean trangthai,String chidoantruong, Set<Taikhoan> taikhoans) {
 		this.machidoan = machidoan;
 		this.khoa = khoa;
 		this.tenchidoan = tenchidoan;
 		this.trangthai = trangthai;
+		this.chidoantruong = chidoantruong;
 		this.taikhoans = taikhoans;
 	}
 
@@ -77,6 +79,14 @@ public class Chidoan implements java.io.Serializable {
 
 	public void setTrangthai(Boolean trangthai) {
 		this.trangthai = trangthai;
+	}
+	@Column(name = "Chidoantruong")
+	public String getChidoantruong() {
+		return this.chidoantruong;
+	}
+
+	public void setChidoantruong(String chidoantruong) {
+		this.chidoantruong = chidoantruong;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "chidoan")

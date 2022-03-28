@@ -10,11 +10,16 @@
 
 	<http auto-config="false" use-expressions="true"
 		disable-url-rewriting="true">
-		<intercept-url pattern="/Login**" access="permitAll"/>
-		<intercept-url pattern="/dv/**" access="hasAnyRole('DV')" />
-		<intercept-url pattern="/btcd/**" access="hasAnyRole('BTCD')" />
-		<intercept-url pattern="/btdk/**" access="hasAnyRole('BTDK')" />
-		<intercept-url pattern="/btdt/**" access="hasAnyRole('BTDT')" />
+		
+		<intercept-url pattern="/Login**" access="permitAll" />
+		<intercept-url pattern="/dv/**"
+			access="hasAnyRole('DV')" />
+		<intercept-url pattern="/btcd/**"
+			access="hasAnyRole('BTCD')" />
+		<intercept-url pattern="/btdk/**"
+			access="hasAnyRole('BTDK')" />
+		<intercept-url pattern="/btdt/**"
+			access="hasAnyRole('BTDT')" />
 		<access-denied-handler
 			error-page="/accessDenied" />
 		<form-login login-page="/Login"
@@ -26,15 +31,18 @@
 			invalid-session-url="/Login?sessionTimeout" />
 		<logout delete-cookies="JSESSIONID" />
 	</http>
-<!-- 	MD5 Encryption -->
+	<!-- MD5 Encryption -->
 	<authentication-manager>
 		<authentication-provider
 			user-service-ref="customUserDetailsService">
 			<password-encoder ref="bcryptEncoder" />
 		</authentication-provider>
 	</authentication-manager>
-	
-	<beans:bean id="bcryptEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
-	<beans:bean id="customUserDetailsService" class="com.QLDVSpringMVC.service.impl.CustomUserDetailsService" />
-	<beans:bean id="customSuccessHandler" class="com.QLDVSpringMVC.security.CustomSuccessHandler" />
+
+	<beans:bean id="bcryptEncoder"
+		class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
+	<beans:bean id="customUserDetailsService"
+		class="com.QLDVSpringMVC.service.impl.CustomUserDetailsService" />
+	<beans:bean id="customSuccessHandler"
+		class="com.QLDVSpringMVC.security.CustomSuccessHandler" />
 </beans:beans>

@@ -2,7 +2,7 @@
 	<decorator name="dv" page="dv/dashboard.jsp">
 		<pattern>/dv/*</pattern>
 	</decorator>
-	<decorator name="admin" page="admin.jsp">
-		<pattern>/quan-tri</pattern>
+	<decorator name="btcd" page="btcd/dashboard.jsp">
+		<pattern>/btcd/*</pattern>
 	</decorator>
 </decorators>

@@ -19,4 +19,7 @@ public class ChidoanService {
 	public List<Chidoan> findAllMakhoa(int makhoa){
 		return cdRepo.findAllByTrangthaiAndKhoaMakhoa(true, makhoa);
 	}
+	public List<Chidoan> findAllChidoantruong(String chidoantruong){
+		return cdRepo.findAllByTrangthaiAndChidoantruong(true, chidoantruong);
+	}
 }

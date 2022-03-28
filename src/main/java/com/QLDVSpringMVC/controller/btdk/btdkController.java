@@ -279,14 +279,12 @@ public class btdkController {
 	@RequestMapping(value = "/btdk/danh-sach-lop-danh-gia-lop", method = RequestMethod.GET)
 	public ModelAndView danh_sach_lop_danh_gia_lop() {
 		Taikhoan tk = tkSer.findOneByUsernameAndKhaitru(security.getPrincipal().getUsername(), true);
-		List<Chidoan> listCD = cdSer.findAllMakhoa(1);
+		List<Chidoan> listCD = cdSer.findAllChidoantruong(tk.getusername());
 		ModelAndView mav = new ModelAndView("btdk/markNow_classes");
 		mav.addObject("tk", tk);
 		mav.addObject("listCD", listCD);
 		return mav;
 	}
-	
-	
 	//Lấy mã chi đoàn để hiển thị thành viên của lớp
 	@RequestMapping(value = "/getchidoandanhgianow", method = RequestMethod.POST)
 	public RedirectView redirect4(@RequestParam("chidoan") int chidoan, RedirectAttributes redirectAttributes) {

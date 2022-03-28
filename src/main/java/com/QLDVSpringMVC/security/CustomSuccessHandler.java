@@ -28,7 +28,7 @@ public class CustomSuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
 		redirectStrategy.sendRedirect(request, response, targetUrl);
 	}
 
-	private String determineTargetUrl(Authentication authentication) {
+	public String determineTargetUrl(Authentication authentication) {
 		String url = "";
 		List<String> chucvus = SecurityUtils.getAuthorities();
 		if(isBTDT(chucvus)==true)

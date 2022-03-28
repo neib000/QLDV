@@ -3,6 +3,8 @@ package com.QLDVSpringMVC.util;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
@@ -25,4 +27,10 @@ public class SecurityUtils {
         }
 		return results;
 	}
+	public boolean isLogin() {
+		  Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		  return null != authentication
+		      && authentication.isAuthenticated()
+		      && !(authentication instanceof AnonymousAuthenticationToken);
+		}
 }

@@ -11,4 +11,5 @@ import com.QLDVSpringMVC.model.Khoa;
 public interface ChidoanRepository extends JpaRepository<Chidoan, Integer>{
 	List<Chidoan> findAllByTrangthai(boolean DangHoatDong);
 	List<Chidoan> findAllByTrangthaiAndKhoaMakhoa(boolean DangHoatDong,int makhoa);
+	List<Chidoan> findAllByTrangthaiAndChidoantruong(boolean DangHoatDong,String ChiDoanTruong);
 }

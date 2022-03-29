@@ -16,10 +16,21 @@ public class ChidoanService {
 	public List<Chidoan> findAll() {
 		return cdRepo.findAllByTrangthai(true);
 	}
+	public List<Chidoan> findAllByChidoantruongIsNotNull() {
+		return cdRepo.findAllByChidoantruongIsNotNull();
+	}
+
+	public List<Chidoan> findAllChidoantruongNull() {
+		return cdRepo.findAllByTrangthaiAndChidoantruong(true, null);
+	}
+
 	public List<Chidoan> findAllMakhoa(int makhoa){
 		return cdRepo.findAllByTrangthaiAndKhoaMakhoa(true, makhoa);
 	}
 	public List<Chidoan> findAllChidoantruong(String chidoantruong){
 		return cdRepo.findAllByTrangthaiAndChidoantruong(true, chidoantruong);
+	}
+	public List<Chidoan> getOneByTrangthaiAndChidoantruongAndMachidoan(String chidoantruong, int machidoan){
+		return cdRepo.getOneByTrangthaiAndChidoantruongAndMachidoan(true, chidoantruong, machidoan);
 	}
 }

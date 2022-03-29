@@ -238,7 +238,7 @@ public class btdkController {
 	@RequestMapping(value = "/btdk/danh-sach-lop", method = RequestMethod.GET)
 	public ModelAndView danh_sach_lop() {
 		Taikhoan tk = tkSer.findOneByUsernameAndKhaitru(security.getPrincipal().getUsername(), true);
-		List<Chidoan> listCD = cdSer.findAllMakhoa(1);
+		List<Chidoan> listCD = cdSer.findAllChidoantruong(tk.getusername());;
 		ModelAndView mav = new ModelAndView("btdk/classes");
 		mav.addObject("tk", tk);
 		mav.addObject("listCD", listCD);
@@ -253,7 +253,12 @@ public class btdkController {
 	//Hiển thị danh sách thành viên của lớp
 	@RequestMapping(value = "/btdk/thanh-vien-lop", method = RequestMethod.GET)
 	public ModelAndView thanh_vien_lop(@RequestParam("chidoan") String chidoan) {
+		List<Chidoan> chidoanBTDK = cdSer.getOneByTrangthaiAndChidoantruongAndMachidoan(security.getPrincipal().getUsername(),Integer.parseInt(chidoan));
+		if(chidoanBTDK.isEmpty()) {
+			return new ModelAndView("redirect:/btdk/trang-chu");
+		}
 		Taikhoan tk = tkSer.findOneByUsernameAndKhaitru(security.getPrincipal().getUsername(),true);
+		
 		List<Taikhoan> listTK = tkSer.findAllByMachidoanAndChucvuMachucvu(Integer.parseInt(chidoan), 4);
 		ModelAndView mav = new ModelAndView("btdk/classmember");
 		mav.addObject("tk", tk);
@@ -294,6 +299,10 @@ public class btdkController {
 	//Hiển thị danh sách thành viên lớp và hiển thị điểm 
 	@RequestMapping(value = "/btdk/danh-gia-lop", method = RequestMethod.GET)
 	public ModelAndView danh_gia_lop(@RequestParam("chidoan") String chidoan) {
+		List<Chidoan> chidoanBTDK = cdSer.getOneByTrangthaiAndChidoantruongAndMachidoan(security.getPrincipal().getUsername(),Integer.parseInt(chidoan));
+		if(chidoanBTDK.isEmpty()) {
+			return new ModelAndView("redirect:/btdk/trang-chu");
+		}
 		Taikhoan tk = tkSer.findOneByUsernameAndKhaitru(security.getPrincipal().getUsername(),true);
 		List<Taikhoan> listTK = tkSer.findAllByMachidoanAndChucvuMachucvu(Integer.parseInt(chidoan), 4);
 		List<Diemdv> listDiemdv = ddvSer.findAll();
@@ -315,7 +324,10 @@ public class btdkController {
 	@RequestMapping(value = "/btdk/chi-tiet-diem-bay-gio", method = RequestMethod.GET)
 	public ModelAndView chi_tiet_diem_bay_gio(@RequestParam("username") String username) {
 		Taikhoan tk = tkSer.findOneByUsernameAndKhaitru(security.getPrincipal().getUsername(),true);
-		Taikhoan dtk = tkSer.findOneByUsernameAndKhaitru(username,true);
+		Taikhoan dtk = tkSer.findOneByUsernameAndKhaitruAndChidoanChidoantruong(username,true, tk.getusername());
+		if(dtk == null) {
+			return new ModelAndView("redirect:/btdk/trang-chu");
+		}
 		List<Diemdv> ddv = ddvSer.findAllBytaikhoan(dtk);
 		List<Tieuchi> tc = tcSer.findAll();
 		ModelAndView mav = new ModelAndView("btdk/markNowDetail_btdk");
@@ -349,7 +361,7 @@ public class btdkController {
 	@RequestMapping(value = "/btdk/danh-sach-lop-chi-tiet-danh-gia", method = RequestMethod.GET)
 	public ModelAndView danh_sach_lop_chi_tiet_danh_gia() {
 		Taikhoan tk = tkSer.findOneByUsernameAndKhaitru(security.getPrincipal().getUsername(), true);
-		List<Chidoan> listCD = cdSer.findAllMakhoa(1);
+		List<Chidoan> listCD = cdSer.findAllChidoantruong(tk.getusername());;
 		ModelAndView mav = new ModelAndView("btdk/mark_classes");
 		mav.addObject("tk", tk);
 		mav.addObject("listCD", listCD);
@@ -364,6 +376,10 @@ public class btdkController {
 	//Hiển thị danh sách các thành viên của lớp 
 	@RequestMapping(value = "/btdk/chi-tiet-danh-gia-lop", method = RequestMethod.GET)
 	public ModelAndView chi_tiet_danh_gia_lop(@RequestParam("chidoan") String chidoan) {
+		List<Chidoan> chidoanBTDK = cdSer.getOneByTrangthaiAndChidoantruongAndMachidoan(security.getPrincipal().getUsername(),Integer.parseInt(chidoan));
+		if(chidoanBTDK.isEmpty()) {
+			return new ModelAndView("redirect:/btdk/trang-chu");
+		}
 		Taikhoan tk = tkSer.findOneByUsernameAndKhaitru(security.getPrincipal().getUsername(),true);
 		List<Taikhoan> listTK = tkSer.findAllByMachidoanAndChucvuMachucvu(Integer.parseInt(chidoan),4);
 		List<Diemdv> listDiemdv = ddvSer.findAll();
@@ -385,7 +401,10 @@ public class btdkController {
 	@RequestMapping(value = "/btdk/chi-tiet-diem", method = RequestMethod.GET)
 	public ModelAndView chi_tiet_diem(@RequestParam("username") String username) {
 		Taikhoan tk = tkSer.findOneByUsernameAndKhaitru(security.getPrincipal().getUsername(),true);
-		Taikhoan dtk = tkSer.findOneByUsernameAndKhaitru(username,true);
+		Taikhoan dtk = tkSer.findOneByUsernameAndKhaitruAndChidoanChidoantruong(username,true, tk.getusername());
+		if(dtk == null) {
+			return new ModelAndView("redirect:/btdk/trang-chu");
+		}
 		List<Diemdv> ddv = ddvSer.findAllBytaikhoan(dtk);
 		List<Tieuchi> tc = tcSer.findAll();
 		ModelAndView mav = new ModelAndView("btdk/markDetail_btdk");

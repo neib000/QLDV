@@ -233,7 +233,7 @@ public class btdtController {
 	@RequestMapping(value = "/btdt/danh-sach-lop", method = RequestMethod.GET)
 	public ModelAndView danh_sach_lop(){
 		Taikhoan tk = tkSer.findOneByUsernameAndKhaitru(security.getPrincipal().getUsername(), true);
-		List<Chidoan> listCD = cdSer.findAll();
+		List<Chidoan> listCD = cdSer.findAllByChidoantruongIsNotNull();
 		ModelAndView mav = new ModelAndView("btdt/classes");
 		mav.addObject("tk", tk);
 		mav.addObject("listCD", listCD);
@@ -282,7 +282,7 @@ public class btdtController {
 		@RequestMapping(value = "/btdt/danh-sach-lop-danh-gia-lop", method = RequestMethod.GET)
 		public ModelAndView danh_sach_lop_danh_gia_lop() {
 			Taikhoan tk = tkSer.findOneByUsernameAndKhaitru(security.getPrincipal().getUsername(), true);
-			List<Chidoan> listCD = cdSer.findAll();
+			List<Chidoan> listCD = cdSer.findAllByChidoantruongIsNotNull();
 			ModelAndView mav = new ModelAndView("btdt/markNow_classes");
 			mav.addObject("tk", tk);
 			mav.addObject("listCD", listCD);
@@ -349,7 +349,7 @@ public class btdtController {
 		@RequestMapping(value = "/btdt/danh-sach-lop-chi-tiet-danh-gia", method = RequestMethod.GET)
 		public ModelAndView danh_sach_lop_chi_tiet_danh_gia() {
 			Taikhoan tk = tkSer.findOneByUsernameAndKhaitru(security.getPrincipal().getUsername(), true);
-			List<Chidoan> listCD = cdSer.findAll();
+			List<Chidoan> listCD = cdSer.findAllByChidoantruongIsNotNull();
 			ModelAndView mav = new ModelAndView("btdt/mark_classes");
 			mav.addObject("tk", tk);
 			mav.addObject("listCD", listCD);

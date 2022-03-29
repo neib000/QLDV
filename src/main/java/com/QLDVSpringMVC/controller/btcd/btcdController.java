@@ -117,7 +117,6 @@ public class btcdController {
 		tk.setSdt(request.getParameter("sdt").trim());
 		tkSer.save(tk);
 		return new RedirectView("thong-tin-tai-khoan?changesuccess");
-
 	}
 	@RequestMapping(value = "/btcd/ho-tro", method = RequestMethod.GET)
 	public ModelAndView ho_tro() {
@@ -183,7 +182,7 @@ public class btcdController {
 	//Hiển thị danh sách thành viên lớp
 	@RequestMapping(value = "/btcd/danh-gia-lop-chua-xong", method = RequestMethod.GET)
 	public ModelAndView danh_gia_lop() {
-		Taikhoan tk = tkSer.findOneByUsernameAndKhaitru(security.getPrincipal().getUsername(),true);
+		Taikhoan tk = tkSer.findOneByUsernameAndKhaitru(security.getPrincipal().getUsername(),true);	
 		List<Taikhoan> listTK = tkSer.findAllByMachidoanAndChucvuMachucvu(tk.getChidoan().getMachidoan(),4);
 		List<Diemdv> listDiemdv = ddvdSer.findAll();
 		List<Loaidiem> ld = ldSer.findAll();
@@ -204,7 +203,10 @@ public class btcdController {
 	@RequestMapping(value = "/btcd/chi-tiet-diem-bay-gio", method = RequestMethod.GET)
 	public ModelAndView thanh_vien_lop_bay_gio(@RequestParam("username") String username) {
 		Taikhoan tk = tkSer.findOneByUsernameAndKhaitru(security.getPrincipal().getUsername(),true);
-		Taikhoan dtk = tkSer.findOneByUsernameAndKhaitru(username,true);
+		Taikhoan dtk = tkSer.findOneByUsernameAndKhaitruAndChidoanMachidoan(username,true, tk.getChidoan().getMachidoan());
+		if(dtk == null) {
+			return new ModelAndView("redirect:/btcd/trang-chu");
+		}
 		List<Diemdv> ddv = ddvdSer.findAllBytaikhoan(dtk);
 		List<Tieuchi> tc = tcSer.findAll();
 		ModelAndView mav = new ModelAndView("btcd/markNow_btcd");
@@ -256,7 +258,10 @@ public class btcdController {
 	@RequestMapping(value = "/btcd/chi-tiet-diem", method = RequestMethod.GET)
 	public ModelAndView thanh_vien_lop(@RequestParam("username") String username) {
 		Taikhoan tk = tkSer.findOneByUsernameAndKhaitru(security.getPrincipal().getUsername(),true);
-		Taikhoan dtk = tkSer.findOneByUsernameAndKhaitru(username,true);
+		Taikhoan dtk = tkSer.findOneByUsernameAndKhaitruAndChidoanMachidoan(username,true, tk.getChidoan().getMachidoan());
+		if(dtk == null) {
+			return new ModelAndView("redirect:/btcd/trang-chu");
+		}
 		List<Diemdv> ddv = ddvdSer.findAllBytaikhoan(dtk);
 		List<Tieuchi> tc = tcSer.findAll();
 		ModelAndView mav = new ModelAndView("btcd/markDetail_btcd");

@@ -297,7 +297,6 @@
 
 							</c:if>
 							<c:if test="${count1 == 10 }">
-
 								<td class="align-middle text-center">${dv10}</td>
 								<td class="align-middle text-center">${btcd10}</td>
 								<td class="align-middle text-center">${btdk10}</td>

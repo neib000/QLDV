@@ -4,7 +4,7 @@
 
 
 <body>
-	<%-- <%@ include file="dashboard.jsp"%> --%>
+
 	<div class="main">
 		<div class="medical">
 			<h3 class="title">THÔNG TIN KHAI BÁO Y TẾ ĐỐI VỚI SINH VIÊN</h3>

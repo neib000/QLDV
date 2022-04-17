@@ -11,7 +11,7 @@
 					<div class="account__pic">
 						<img class="img-responsive img-rounded"
 							style="width: 100%; border-radius: 8px;"
-							src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg"
+							src="https://sinhvien.hutech.edu.vn/assets/images/noimage.jpg"
 							alt="User picture">
 					</div>
 					<div class="account__note green">Cập nhật gần nhất:</div>
@@ -134,8 +134,9 @@
 										<input type="submit" value="Lưu thông tin">
 									</div>
 								</div>
+							</form>
 						</div>
-						</form>
+
 						<div class="modal fade" id="exampleModal" tabindex="-1"
 							role="dialog" aria-labelledby="exampleModalLabel"
 							aria-hidden="true">
@@ -160,7 +161,8 @@
 											</div>
 											<div class="form-group">
 												<label>Nhập lại mật khẩu:</label> <input
-													class="form-control" type="password" name="rePassword" required>
+													class="form-control" type="password" name="rePassword"
+													required>
 											</div>
 											<div class="mt-4" style="float: right;">
 												<button type="button" class="btn btn-secondary"
@@ -180,19 +182,19 @@
 	</div>
 	<c:if test="${param.wrongpassword != null}">
 		<script type="text/javascript">
-		alert("Sai mật khẩu!");
+			alert("Sai mật khẩu!");
 		</script>
 	</c:if>
 	<c:if test="${param.passwordnotmatch != null}">
 		<script type="text/javascript">
-		alert("Mật khẩu không trùng khớp!");
+			alert("Mật khẩu không trùng khớp!");
 		</script>
 	</c:if>
-		<c:if test="${param.changesuccess != null}">
+	<c:if test="${param.changesuccess != null}">
 		<script type="text/javascript">
-		alert("Cập nhật thông tin thành công!");
+			alert("Cập nhật thông tin thành công!");
 		</script>
 	</c:if>
-	</div>
+
 
 </body>

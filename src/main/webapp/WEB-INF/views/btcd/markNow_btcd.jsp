@@ -4,7 +4,7 @@
 
 
 <body>
-	<%@ include file="dashboard.jsp"%>
+	
 	<div class="main">
 		<!-- hien diem doan vien-->
 		<c:forEach items="${ddv }" var="ddv">

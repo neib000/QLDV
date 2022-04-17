@@ -5,7 +5,7 @@
 <body>
 	
 	<div class="main">
-		<table class="table table-striped table-bordered text-center">
+		<table id="classmember" class="table table-striped table-bordered text-center">
 			<thead>
 				<tr>
 					<th scope="col">STT</th>

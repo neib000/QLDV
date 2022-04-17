@@ -4,7 +4,7 @@
 
 
 <body>
-<%-- 	<%@ include file="dashboard.jsp"%> --%>
+
 	<div class="main">
 
 		<table class="table table-striped text-center">

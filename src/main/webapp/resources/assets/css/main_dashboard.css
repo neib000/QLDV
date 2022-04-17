@@ -13,6 +13,7 @@ body{
 	top:0;
 	padding:16px 30px;
 	width:calc(100vw - 260px);
+	overflow-X:hidden; 
 }
 .main_title{
 	font-size:16px;

@@ -5,4 +5,10 @@
 	<decorator name="btcd" page="btcd/dashboard.jsp">
 		<pattern>/btcd/*</pattern>
 	</decorator>
+	<decorator name="btdk" page="btdk/dashboard.jsp">
+		<pattern>/btdk/*</pattern>
+	</decorator>
+	<decorator name="btdt" page="btdt/dashboard.jsp">
+		<pattern>/btdt/*</pattern>
+	</decorator>
 </decorators>

@@ -21,9 +21,7 @@
 	href="<c:url value='/resources/assets/img/small-logo.png'/>"
 	type="image/x-icon">
 <link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-	crossorigin="anonymous">
+	href="<c:url value="/resources/assets/css/bootstrap.css"/>">
 <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css"
 	rel="stylesheet">
 <link rel="stylesheet"
@@ -49,7 +47,7 @@
 		<nav id="sidebar" class="sidebar-wrapper">
 			<div class="sidebar-content">
 				<div class="sidebar-brand">
-					<a href="https://www.hutech.edu.vn/" target="blank"> <img
+					<a href="#" target="blank"> <img
 						alt="" style="width: 28px"
 						src="<c:url value='/resources/assets/img/small-logo.png'/>">
 						Hutech
@@ -140,7 +138,7 @@
 	<decorator:body />
 
 	<!-- sidebar-wrapper  -->
-	<script
+	<!-- 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
@@ -149,9 +147,27 @@
 	<script
 		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
 		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-		crossorigin="anonymous"></script>
+		crossorigin="anonymous"></script> -->
+	<script src="<c:url value="/resources/assets/js/jquery.js"/>"></script>
+	<script src="<c:url value="/resources/assets/js/poper.js"/>"></script>
+	<script src="<c:url value="/resources/assets/js/bootstrap.js"/>"></script>
+	<script src="<c:url value="/resources/assets/js/datatable.js"/>"></script>
+	<script
+		src="<c:url value="/resources/assets/js/datatable-bootstrap.js"/>"></script>
 	<script src="<c:url value="/resources/assets/js/dashboard.js"/>"></script>
-
+	<script type="text/javascript">
+	$(document).ready(function (){
+	
+		if(	$("#classmember").length>0){
+			$("#classmember").DataTable();
+		};
+		
+		if(	$("#markBtcd").length>0){
+			$("#markBtcd").DataTable();
+		};
+		
+	});
+	</script>
 
 
 	<c:if test="${param.wrongpassword != null}">

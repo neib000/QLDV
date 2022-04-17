@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <body>
-	<%@ include file="dashboard.jsp"%>
+
 	<div class="main">
 
 		<table class="table table-striped text-center">

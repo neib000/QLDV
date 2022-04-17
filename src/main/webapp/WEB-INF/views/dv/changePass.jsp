@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <body>
-<%-- 	<%@ include file="dashboard.jsp"%> --%>
+
 	<div class="main">
 		<form action="<c:url value = "/dv/doi-mat-khau"/>" method="post">
 			<p>Mật khẩu cũ:</p>

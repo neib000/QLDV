@@ -89,7 +89,7 @@
 			<tbody>
 				<tr>
 					<th scope="row">1</th>
-					<th>2020-2021</th>
+					<th>2021-2022</th>
 					
 					<td><span class="status bg-danger">Đang xét</span></td>
 					<td><a style="font-size: 16px;" href="danh-gia-lop-chua-xong"><i
@@ -97,7 +97,7 @@
 				</tr>
 				<tr>
 					<th scope="row">2</th>
-					<th>2019-2020</th>
+					<th>2020-2021</th>
 					<td><span class="status">Hoàn thành</span></td>
 					<td><a style="font-size: 16px;" href="danh-gia-lop-da-xong"><i
 							class="fas fa-eye"></i></a></td>

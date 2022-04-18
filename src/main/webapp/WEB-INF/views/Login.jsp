@@ -47,6 +47,14 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
 	crossorigin="anonymous">
+<style type="text/css">
+
+label.error {
+	display: inline-block;
+	color: red;
+	
+}
+</style>
 </head>
 <body>
 	<div class="app">
@@ -93,33 +101,36 @@
 					<div class="col l-4 m-12 c-12 padding">
 						<div class="login__form">
 							<h3 class="login__tilte">Đăng nhập</h3>
-							<form action="j_spring_security_check" class="login__form-hold" method="post">
+							<form action="j_spring_security_check" class="login__form-hold"
+								id="formDemo" method="post">
 								<!-- Wrong user or pass Alert -->
 								<c:if test="${param.incorrectAccount != null}">
 									<div class="alert alert-danger">
-									<strong>Tên đăng nhập hoặc mật khẩu không đúng!</strong>
-								</div>
+										<strong>Tên đăng nhập hoặc mật khẩu không đúng!</strong>
+									</div>
 								</c:if>
 								<!-- Sesion timeout -->
 								<c:if test="${param.sessionTimeout!= null}">
 									<div class="alert alert-warning">
-									<strong>Phiên đăng nhập đã kết thúc!</strong>
-								</div>
+										<strong>Phiên đăng nhập đã kết thúc!</strong>
+									</div>
 								</c:if>
 								<!-- Wrong user or pass Alert -->
 								<c:if test="${param.accessDenied != null}">
 									<div class="alert alert-danger">
-									<strong>Bạn không có quyền truy cập trang này!</strong>
-								</div>
+										<strong>Bạn không có quyền truy cập trang này!</strong>
+									</div>
 								</c:if>
 								<p class="label__login">
 									Tài khoản <i class="fas fa-user"></i>
 								</p>
-								<input type="text" class="login__input" name="j_username">
+								<input type="text" class="login__input" name="j_username"
+									required>
 								<p class="label__login">
 									Mật mã <i class="fas fa-lock"></i>
 								</p>
-								<input type="password" class="login__input" name="j_password">
+								<input type="password" class="login__input" name="j_password"
+									required>
 								<p class="login__form-info">
 									Đăng nhập không được? <a
 										href="http://qlcntt.hutech.edu.vn/ho-tro?tieu_de=tai%20khoan">Xem
@@ -154,17 +165,33 @@
 	</div>
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-		crossorigin="anonymous"></script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-		crossorigin="anonymous"></script>
-	<script
-		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-		crossorigin="anonymous"></script>
+	<script src="<c:url value="/resources/assets/js/jquery.js"/>"></script>
+	<script src="<c:url value="/resources/assets/js/poper.js"/>"></script>
+	<script src="<c:url value="/resources/assets/js/bootstrap.js"/>"></script>
+	<script src="<c:url value="/resources/assets/js/validation.js"/>"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+
+			//Khi bàn phím được nhấn và thả ra thì sẽ chạy phương thức này
+			$("#formDemo").validate({
+				rules : {
+					j_username : "required",
+					j_password :{
+						required: true,
+						minlength: 2,
+					} 
+
+				},
+				messages : {
+					j_username : "Vui lòng nhập tên tài khoản",
+					j_password :{
+						required: "Vui lòng nhập mật khẩu",
+						minlength: "Mật khẩu ít nhất 6 kí tự",
+					} 
+				}
+			});
+		});
+	</script>
 	<!-- end all -->
 </body>
 </html>

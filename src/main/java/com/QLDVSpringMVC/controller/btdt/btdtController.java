@@ -263,8 +263,7 @@ public class btdtController {
 		mav.addObject("tk", tk);
 		return mav;
 	}
-		/* ==============================Ä�iá»ƒm Ä�oÃ n ViÃªn============================== */
-		//Hiá»ƒn thá»‹ há»�c kÃ¬ cháº¥m Ä‘iá»ƒm
+	
 		@RequestMapping(value = "/btdt/hk-danh-gia", method = RequestMethod.GET)
 		public ModelAndView hk_danh_gia() {
 			Taikhoan tk = tkSer.findOneByUsernameAndKhaitru(security.getPrincipal().getUsername(),true);
@@ -276,9 +275,7 @@ public class btdtController {
 			return mav;
 		}
 		
-		//--------Há»�c kÃ¬ Ä‘Ã¡nh gia chÆ°a xong--------//
-		//****Há»�c kÃ¬ 1 nÄƒm 2020-2021****//
-		//Hiá»ƒn thá»‹ danh sÃ¡ch lá»›p
+	
 		@RequestMapping(value = "/btdt/danh-sach-lop-danh-gia-lop", method = RequestMethod.GET)
 		public ModelAndView danh_sach_lop_danh_gia_lop() {
 			Taikhoan tk = tkSer.findOneByUsernameAndKhaitru(security.getPrincipal().getUsername(), true);
@@ -343,9 +340,7 @@ public class btdtController {
 			
 		}
 		
-		//--------Há»�c kÃ¬ Ä‘Ã¡nh gia Ä‘Ã£ xong--------//
-		//****Há»�c kÃ¬ 1 nÄƒm 2020-2021****//
-		//Hiá»ƒn thá»‹ danh sÃ¡ch lá»›p Ä‘Ã£ cháº¥m xong
+		
 		@RequestMapping(value = "/btdt/danh-sach-lop-chi-tiet-danh-gia", method = RequestMethod.GET)
 		public ModelAndView danh_sach_lop_chi_tiet_danh_gia() {
 			Taikhoan tk = tkSer.findOneByUsernameAndKhaitru(security.getPrincipal().getUsername(), true);

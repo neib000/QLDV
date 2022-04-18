@@ -37,7 +37,7 @@
 				<c:set var="count3" value="${count3 + ddv.sodiem}" />
 			</c:if>
 		</c:forEach>
-		
+
 		<c:set var="count4" value="0" />
 		<c:forEach items="${ddv }" var="ddv">
 			<c:if
@@ -70,7 +70,7 @@
 			</c:if>
 		</c:forEach>
 		<!-- Xep loai -->
-		
+
 		<c:set var="xeploai" value="" />
 		<c:forEach items="${ld}" var="ld">
 			<c:if test="${count >= ld.maloaidiem}">
@@ -94,54 +94,39 @@
 			<tbody>
 				<tr>
 					<th scope="row">1</th>
-					<td>2020-2021</td>
-					<td>
-						<c:if test="${count7 != 0}">
+					<th>2021-2022</th>
+					<td><c:if test="${count7 != 0}">
 							${count7 }
-						</c:if>
-						<c:if test="${count7 == 0}">
+						</c:if> <c:if test="${count7 == 0}">
 							...
-						</c:if>
-					</td>
-					<td>
-						<c:if test="${count6 != 0}">
+						</c:if></td>
+					<td><c:if test="${count6 != 0}">
 							${count6 }
-						</c:if>
-						<c:if test="${count6 == 0}">
+						</c:if> <c:if test="${count6 == 0}">
 							...
-						</c:if>
-					</td>
-					<td>
-						<c:if test="${count5 != 0}">
+						</c:if></td>
+					<td><c:if test="${count5 != 0}">
 							${count5 }
-						</c:if>
-						<c:if test="${count5 == 0}">
+						</c:if> <c:if test="${count5 == 0}">
 							...
-						</c:if>
-					</td>
-					<td>
-						<c:if test="${count4 != 0}">
+						</c:if></td>
+					<td><c:if test="${count4 != 0}">
 							${count4 }
-						</c:if>
-						<c:if test="${count4 == 0}">
+						</c:if> <c:if test="${count4 == 0}">
 							...
-						</c:if>
-					</td>
-					<td>
-						<c:if test="${count4 != 0}">
+						</c:if></td>
+					<td><c:if test="${count4 != 0}">
 							${count4 }
-						</c:if>
-						<c:if test="${count4 == 0}">
+						</c:if> <c:if test="${count4 == 0}">
 							...
-						</c:if>
-					</td>
+						</c:if></td>
 					<td><span class="status bg-danger">Đang xét</span></td>
 					<td><a style="font-size: 16px;" href="danh-gia-diem"><i
 							class="fas fa-pencil-alt"></i></a></td>
 				</tr>
 				<tr>
 					<th scope="row">2</th>
-					<td>2019-2020</td>
+					<td>2020-2021</td>
 					<td>${count3}</td>
 					<td>${count2}</td>
 					<td>${count1}</td>
